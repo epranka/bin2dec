@@ -44,7 +44,7 @@ function App() {
     } else {
       setDecimalValue("");
     }
-  }, [binaryValue]);
+  }, [binaryValue, binaryIsValid]);
 
   return (
     <div id="bin2dec">

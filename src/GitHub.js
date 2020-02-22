@@ -7,6 +7,7 @@ const GitHub = () => {
       href="https://github.com/epranka/bin2dec"
       className="github-corner"
       target="_blank"
+      rel="noopener noreferrer"
       title="Open in GitHub"
     >
       <svg

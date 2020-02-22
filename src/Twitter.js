@@ -8,6 +8,7 @@ const Twitter = () => {
       style={{ textTransform: "uppercase", color: "white" }}
       href="https://twitter.com/epranka"
       target="_blank"
+      rel="noopener noreferrer"
       title="Follow on Twitter"
     >
       <img src="/twitter.png" alt="Twitter logo" /> <span>epranka</span>
