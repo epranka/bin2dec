@@ -18,3 +18,156 @@
 
 <br />
 
+The live converter you can find by pressing the following link [bin2dev.now.sh](https://bin2dev.now.sh).
+
+It's created using the React Create App (CRA) boilerplate.
+
+The idea to make bin2dec converter came from the Florin Pop app ideas [repository](https://github.com/florinpop17/app-ideas).
+
+![bin2dec landing page animation](https://bin2dec.now.sh/bin2dec.gif)
+
+<br />
+
+### The main _App_ component
+
+```jsx
+import React, { useEffect, useState } from "react";
+import "./App.css";
+
+function App() {
+  const [binaryIsValid, setBinaryIsValid] = useState(true);
+  const [binaryValue, setBinaryValue] = useState("");
+  const [decimalValue, setDecimalValue] = useState("");
+
+  const formatValue = value => {
+    return value
+      .replace(/(\d{4})/g, "$1 ")
+      .replace(/\s+/g, " ")
+      .replace(/^\s+|\s+$/g, "");
+  };
+
+  const handleBinaryValueChange = e => {
+    let value = String(e.target.value);
+    if (!value) {
+      setBinaryValue("");
+      setBinaryIsValid(true);
+    } else {
+      setBinaryIsValid(/^([01\s]+)$/.test(value));
+      setBinaryValue(formatValue(value));
+    }
+  };
+
+  const calculateDecimal = binaryString => {
+    let decimalResult = 0;
+    for (
+      let i = 0, j = binaryString.length - 1;
+      i < binaryString.length;
+      i++, j--
+    ) {
+      const digit = parseInt(binaryString[i]);
+      decimalResult += digit * Math.pow(2, j);
+    }
+    return decimalResult;
+  };
+
+  useEffect(() => {
+    if (binaryIsValid && binaryValue) {
+      const decimalValue = calculateDecimal(binaryValue.replace(/\s+/g, ""));
+      setDecimalValue(decimalValue);
+    } else {
+      setDecimalValue("");
+    }
+  }, [binaryValue, binaryIsValid]);
+
+  return (
+    <div id="bin2dec">
+      <h1 id="header">Bin2Dec</h1>
+      <input
+        id="binary"
+        className={binaryIsValid ? "" : "invalid"}
+        type="text"
+        placeholder="1010 1010"
+        value={binaryValue}
+        onChange={handleBinaryValueChange}
+      />
+      <div id="decimal">{decimalValue}</div>
+    </div>
+  );
+}
+
+export default App;
+```
+
+<br />
+
+### The main _App_ styles
+
+```css
+#bin2dec {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#header {
+  font-size: 42px;
+}
+
+#binary {
+  width: 100%;
+  display: block;
+  max-width: 350px;
+  margin: 0 20px;
+  font-size: 42px;
+  text-align: center;
+  background: transparent;
+  color: white;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid white;
+  margin-bottom: 30px;
+}
+
+#binary.invalid {
+  color: #943838;
+}
+
+#decimal {
+  font-size: 64px;
+  height: 100px;
+}
+```
+
+<br />
+
+### The global styles
+
+```css
+body {
+  margin: 0;
+  font-family: "Karla", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  background: #222222;
+  color: white;
+}
+```
