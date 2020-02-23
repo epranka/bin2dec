@@ -18,11 +18,13 @@
 
 <br />
 
-The live converter you can find by pressing the following link [bin2dev.now.sh](https://bin2dev.now.sh).
+The live converter you can find by pressing the following link [bin2dec.now.sh](https://bin2dec.now.sh).
 
 It's created using the React Create App (CRA) boilerplate.
 
 The idea to make bin2dec converter came from the Florin Pop app ideas [repository](https://github.com/florinpop17/app-ideas).
+
+The inverted version of the converter **(dec2bin)** you can find there [dec2bin.now.sh](https://dec2bin.now.sh).
 
 ![bin2dec landing page animation](https://bin2dec.now.sh/bin2dec.gif)
 
