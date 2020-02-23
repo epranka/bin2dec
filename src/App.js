@@ -48,7 +48,11 @@ function App() {
 
   return (
     <div id="bin2dec">
-      <h1 id="header">Bin2Dec</h1>
+      <h1 id="header">
+        <a href="https://dec2bin.now.sh" title="Switch to Dec2Bin">
+          Bin2Dec
+        </a>
+      </h1>
       <input
         id="binary"
         className={binaryIsValid ? "" : "invalid"}
