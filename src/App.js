@@ -48,10 +48,11 @@ function App() {
 
   return (
     <div id="bin2dec">
+      <a id="switch" href="https://dec2bin.now.sh" title="Switch to Dec2Bin">
+        Dec2Bin
+      </a>
       <h1 id="header">
-        <a href="https://dec2bin.now.sh" title="Switch to Dec2Bin">
-          Bin2Dec
-        </a>
+        Bin2Dec
       </h1>
       <input
         id="binary"

@@ -12,11 +12,20 @@
 
 #header {
   font-size: 42px;
+  margin: 0;
+  margin-bottom: 1rem;
 }
 
 #header a {
   color: white;
   text-decoration: none;
+}
+
+a#switch {
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  display: block;
 }
 
 #binary {
