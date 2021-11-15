@@ -3,13 +3,13 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import Twitter from "./Twitter";
+import Credits from "./Credits";
 import GitHub from "./GitHub";
 
 ReactDOM.render(
   <>
     <App />
-    <Twitter />
+    <Credits />
     <GitHub />
   </>,
   document.getElementById("root")
